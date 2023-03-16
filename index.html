@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Tourney:wght@500&display=swap" rel="stylesheet">
+  <title>Quiz SKA</title>
+</head>
+
+<body>
+  <div class="page">
+    <div class="game">
+      <div class="count">0</div>
+      <img src="./img/heart3.png" alt="lifes" class="life">
+    </div>
+    <button class="img_btn">?</button>
+    <img class="img" style="display: none;" src="./img/unnamed.png">
+    <h1 class="vopros">777</h1>
+    <div class="otvets">
+      <div class="otvet otvet_1">Обнови</div>
+      <div class="otvet otvet_2">не Обнови</div>
+      <div class="otvet otvet_3">не Обнови</div>
+      <div class="otvet otvet_4">Обнови</div>
+    </div>
+    <button class="relod">Обновить</button>
+    <div class="right">&#169; С. А. Москвитин, 2023</div>
+  </div>
+  <div class="popup" style="display: none;">
+    <div class="win">
+      <h2 class="wit-title">Конец игры</h2>
+      <p class="result">Ваш результа: 34</p>
+      <button class="newGame">Начать заново</button>
+    </div>
+  </div>
+  <script type="module" src="script.js"></script>
+</body>
+
+</html>

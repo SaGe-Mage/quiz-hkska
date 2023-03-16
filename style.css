@@ -1,0 +1,153 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.page {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.game {
+  width: 760px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.count {
+  font-family: 'Tourney', cursive;
+  font-size: 30px;
+}
+
+.life {
+  height: 30px;
+}
+
+.img_btn {
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  font-size: 70px;
+}
+
+.img_btn:hover {
+  background-color: #cfcfcf;
+}
+
+.img {
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+}
+
+.vopros {
+  margin: 20px 0 0;
+  padding: 0 15px;
+  font-family: 'Tourney', cursive;
+  font-size: 100px;
+  background-color: #003485;
+  border-radius: 25% 10%;
+  color: #ff1e30;
+  text-shadow: 1px 0 1px #fff,
+    0 1px 1px #fff,
+    -1px 0 1px #fff,
+    0 -1px 1px #fff;
+}
+
+.otvets {
+  margin-top: 20px;
+  display: grid;
+  gap: 20px;
+  grid-template-columns: 370px 370px;
+  grid-template-rows: 50px 50px;
+}
+
+.otvet {
+  font-size: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px #000 solid;
+  border-radius: 20px;
+  background-color: #fff;
+}
+
+.otvet:hover {
+  background-color: #ff0;
+  cursor: pointer;
+}
+
+.otvet:active {
+  background-color: #7fffd4;
+  transform: scale(0.96);
+}
+
+.relod {
+  font-size: 25px;
+  width: 140px;
+  height: 50px;
+  margin-top: 50px;
+  margin-bottom: 20px;
+  border-radius: 20px;
+}
+
+.relod:hover {
+  background-color: rgb(226, 226, 226);
+}
+
+.popup {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: calc(100vw - 40px);
+  height: calc(100vh - 40px);
+  padding: 40px 0 0 40px;
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  /* align-items: center; */
+  /* background-color: rgba(0, 0, 0, 0.6); */
+}
+
+.win {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: rgb(2, 0, 36);
+  background: linear-gradient(115deg, rgb(0, 0, 255) 0%, rgb(255, 0, 0) 100%);
+  width: 700px;
+  height: 500px;
+  border-radius: 20px;
+}
+
+.wit-title {
+  color: #fff;
+  font-size: 40px;
+  padding: 0;
+  margin: 0;
+}
+
+.result {
+  color: #fff;
+  font-size: 30px;
+  padding: 0;
+  margin: 40px 0;
+}
+
+.newGame {
+  font-size: 24px;
+  width: 216px;
+  height: 50px;
+  padding: 0;
+  margin: 0;
+  border-radius: 20px;
+}
+
+.newGame:hover {
+  background-color: rgb(226, 226, 226);
+}
