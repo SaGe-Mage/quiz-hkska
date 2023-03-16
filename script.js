@@ -51,8 +51,11 @@ function shuffle(array) {
 //====================INTERFACE====================
 
 function otvetCheck(params) {
-  if (params.target.textContent == prav) {
+  if (params.target.textContent == prav && !img.hasAttribute("style")) {
     cou++;
+    count.textContent = cou;
+  } else if (params.target.textContent == prav && img.hasAttribute("style")) {
+    cou += 2;
     count.textContent = cou;
   } else {
     params.target.setAttribute('style', 'background-color: #ff1e30;');
