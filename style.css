@@ -19,7 +19,7 @@ body {
 }
 
 .count {
-  font-family: 'Tourney', cursive;
+  font-family: "Tourney", cursive;
   font-size: 30px;
 }
 
@@ -47,15 +47,12 @@ body {
 .question {
   margin: 20px 0 0;
   padding: 0 15px;
-  font-family: 'Tourney', cursive;
+  font-family: "Tourney", cursive;
   font-size: 100px;
   background-color: #003485;
   border-radius: 25% 10%;
   color: #ff1e30;
-  text-shadow: 1px 0 1px #fff,
-    0 1px 1px #fff,
-    -1px 0 1px #fff,
-    0 -1px 1px #fff;
+  text-shadow: 1px 0 1px #fff, 0 1px 1px #fff, -1px 0 1px #fff, 0 -1px 1px #fff;
 }
 
 .answers {

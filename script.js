@@ -24,7 +24,7 @@ let lif = 3;
 function random1() {
   let num;
   let names = [];
-  let otv = '';
+  let otv = "";
   let img;
 
   for (let x = 0; x <= 3; x++) {
@@ -39,7 +39,7 @@ function random1() {
       }
       names[x] = team[index].name;
     }
-  };
+  }
   return [num, names, otv, img];
 }
 
@@ -53,46 +53,49 @@ function answerCheck(params) {
   if (params.target.textContent == correct && !img.hasAttribute("style")) {
     cou++;
     count.textContent = cou;
-  } else if (params.target.textContent == correct && img.hasAttribute("style")) {
+  } else if (
+    params.target.textContent == correct &&
+    img.hasAttribute("style")
+  ) {
     cou += 2;
     count.textContent = cou;
   } else {
-    params.target.setAttribute('style', 'background-color: #ff1e30;');
+    params.target.setAttribute("style", "background-color: #ff1e30;");
     lif--;
-    life.setAttribute('src', './img/heart' + lif + '.png');
+    life.setAttribute("src", "./img/heart" + lif + ".png");
   }
   if (lif == 0) {
-    life.setAttribute('style', 'display: none;');
+    life.setAttribute("style", "display: none;");
     button.setAttribute("disabled", "disabled");
-    result.textContent = 'Ваш результат: ' + cou;
-    popup.removeAttribute('style');
+    result.textContent = "Ваш результат: " + cou;
+    popup.removeAttribute("style");
   } else {
     button.removeAttribute("disabled");
   }
 
   switch (correct) {
     case answer1.textContent:
-      answer1.setAttribute('style', 'background-color: lime;');
+      answer1.setAttribute("style", "background-color: lime;");
       break;
 
     case answer2.textContent:
-      answer2.setAttribute('style', 'background-color: lime;');
+      answer2.setAttribute("style", "background-color: lime;");
       break;
 
     case answer3.textContent:
-      answer3.setAttribute('style', 'background-color: lime;');
+      answer3.setAttribute("style", "background-color: lime;");
       break;
 
     case answer4.textContent:
-      answer4.setAttribute('style', 'background-color: lime;');
+      answer4.setAttribute("style", "background-color: lime;");
       break;
 
     default:
       break;
   }
 
-  buttonImg.setAttribute('style', 'display: none;');
-  img.removeAttribute('style');
+  buttonImg.setAttribute("style", "display: none;");
+  img.removeAttribute("style");
 
   answer1.removeEventListener("click", answerCheck);
   answer2.removeEventListener("click", answerCheck);
@@ -103,28 +106,28 @@ function answerCheck(params) {
 buttonImg.addEventListener("click", (event) => {
   event.preventDefault();
 
-  buttonImg.setAttribute('style', 'display: none;');
-  img.removeAttribute('style');
-})
+  buttonImg.setAttribute("style", "display: none;");
+  img.removeAttribute("style");
+});
 
 newGame.addEventListener("click", (event) => {
   event.preventDefault();
 
   location.reload();
-})
+});
 
 function runGame() {
-  answer1.setAttribute('style', 'background-color: white;');
-  answer2.setAttribute('style', 'background-color: white;');
-  answer3.setAttribute('style', 'background-color: white;');
-  answer4.setAttribute('style', 'background-color: white;');
+  answer1.setAttribute("style", "background-color: white;");
+  answer2.setAttribute("style", "background-color: white;");
+  answer3.setAttribute("style", "background-color: white;");
+  answer4.setAttribute("style", "background-color: white;");
 
   let index = random1();
   let newIndex = shuffle(index[1]);
 
   img.src = index[3];
-  img.setAttribute('style', 'display: none;');
-  buttonImg.removeAttribute('style');
+  img.setAttribute("style", "display: none;");
+  buttonImg.removeAttribute("style");
 
   answer1.textContent = newIndex[0];
   answer2.textContent = newIndex[1];
@@ -147,6 +150,6 @@ button.addEventListener("click", (event) => {
   event.preventDefault();
 
   runGame();
-})
+});
 
 window.onload = runGame;
