@@ -1,14 +1,13 @@
 import { team } from "./data.js";
 
-const page = document.querySelector(".page");
 const buttonImg = document.querySelector(".img_btn");
-const button = document.querySelector(".relod");
+const button = document.querySelector(".reload");
 const img = document.querySelector(".img");
-const vopros = document.querySelector(".vopros");
-const otvet1 = document.querySelector(".otvet_1");
-const otvet2 = document.querySelector(".otvet_2");
-const otvet3 = document.querySelector(".otvet_3");
-const otvet4 = document.querySelector(".otvet_4");
+const question = document.querySelector(".question");
+const answer1 = document.querySelector(".answer_1");
+const answer2 = document.querySelector(".answer_2");
+const answer3 = document.querySelector(".answer_3");
+const answer4 = document.querySelector(".answer_4");
 const count = document.querySelector(".count");
 const life = document.querySelector(".life");
 const popup = document.querySelector(".popup");
@@ -16,7 +15,7 @@ const popup = document.querySelector(".popup");
 const result = document.querySelector(".result");
 const newGame = document.querySelector(".newGame");
 
-let prav;
+let correct;
 let cou = 0;
 let lif = 3;
 
@@ -24,13 +23,13 @@ let lif = 3;
 
 function random1() {
   let num;
-  let nams = [];
+  let names = [];
   let otv = '';
   let img;
 
   for (let x = 0; x <= 3; x++) {
     let index = Math.floor(Math.random() * team.length);
-    if (nams.includes(team[index].name, 0)) {
+    if (names.includes(team[index].name, 0)) {
       return random1();
     } else {
       if (x === 3) {
@@ -38,10 +37,10 @@ function random1() {
         num = team[index].num;
         img = team[index].img;
       }
-      nams[x] = team[index].name;
+      names[x] = team[index].name;
     }
   };
-  return [num, nams, otv, img];
+  return [num, names, otv, img];
 }
 
 function shuffle(array) {
@@ -50,11 +49,11 @@ function shuffle(array) {
 
 //====================INTERFACE====================
 
-function otvetCheck(params) {
-  if (params.target.textContent == prav && !img.hasAttribute("style")) {
+function answerCheck(params) {
+  if (params.target.textContent == correct && !img.hasAttribute("style")) {
     cou++;
     count.textContent = cou;
-  } else if (params.target.textContent == prav && img.hasAttribute("style")) {
+  } else if (params.target.textContent == correct && img.hasAttribute("style")) {
     cou += 2;
     count.textContent = cou;
   } else {
@@ -71,21 +70,21 @@ function otvetCheck(params) {
     button.removeAttribute("disabled");
   }
 
-  switch (prav) {
-    case otvet1.textContent:
-      otvet1.setAttribute('style', 'background-color: lime;');
+  switch (correct) {
+    case answer1.textContent:
+      answer1.setAttribute('style', 'background-color: lime;');
       break;
 
-    case otvet2.textContent:
-      otvet2.setAttribute('style', 'background-color: lime;');
+    case answer2.textContent:
+      answer2.setAttribute('style', 'background-color: lime;');
       break;
 
-    case otvet3.textContent:
-      otvet3.setAttribute('style', 'background-color: lime;');
+    case answer3.textContent:
+      answer3.setAttribute('style', 'background-color: lime;');
       break;
 
-    case otvet4.textContent:
-      otvet4.setAttribute('style', 'background-color: lime;');
+    case answer4.textContent:
+      answer4.setAttribute('style', 'background-color: lime;');
       break;
 
     default:
@@ -95,10 +94,10 @@ function otvetCheck(params) {
   buttonImg.setAttribute('style', 'display: none;');
   img.removeAttribute('style');
 
-  otvet1.removeEventListener("click", otvetCheck);
-  otvet2.removeEventListener("click", otvetCheck);
-  otvet3.removeEventListener("click", otvetCheck);
-  otvet4.removeEventListener("click", otvetCheck);
+  answer1.removeEventListener("click", answerCheck);
+  answer2.removeEventListener("click", answerCheck);
+  answer3.removeEventListener("click", answerCheck);
+  answer4.removeEventListener("click", answerCheck);
 }
 
 buttonImg.addEventListener("click", (event) => {
@@ -115,33 +114,33 @@ newGame.addEventListener("click", (event) => {
 })
 
 function runGame() {
-  otvet1.setAttribute('style', 'background-color: white;');
-  otvet2.setAttribute('style', 'background-color: white;');
-  otvet3.setAttribute('style', 'background-color: white;');
-  otvet4.setAttribute('style', 'background-color: white;');
+  answer1.setAttribute('style', 'background-color: white;');
+  answer2.setAttribute('style', 'background-color: white;');
+  answer3.setAttribute('style', 'background-color: white;');
+  answer4.setAttribute('style', 'background-color: white;');
 
   let index = random1();
-  let newi = shuffle(index[1]);
+  let newIndex = shuffle(index[1]);
 
   img.src = index[3];
   img.setAttribute('style', 'display: none;');
   buttonImg.removeAttribute('style');
 
-  otvet1.textContent = newi[0];
-  otvet2.textContent = newi[1];
-  otvet3.textContent = newi[2];
-  otvet4.textContent = newi[3];
+  answer1.textContent = newIndex[0];
+  answer2.textContent = newIndex[1];
+  answer3.textContent = newIndex[2];
+  answer4.textContent = newIndex[3];
 
-  vopros.textContent = index[0];
-  prav = index[2];
+  question.textContent = index[0];
+  correct = index[2];
 
   button.textContent = "Дальше";
   button.setAttribute("disabled", "disabled");
 
-  otvet1.addEventListener("click", otvetCheck);
-  otvet2.addEventListener("click", otvetCheck);
-  otvet3.addEventListener("click", otvetCheck);
-  otvet4.addEventListener("click", otvetCheck);
+  answer1.addEventListener("click", answerCheck);
+  answer2.addEventListener("click", answerCheck);
+  answer3.addEventListener("click", answerCheck);
+  answer4.addEventListener("click", answerCheck);
 }
 
 button.addEventListener("click", (event) => {
