@@ -13,13 +13,14 @@ const life = document.querySelector(".life");
 const popup = document.querySelector(".popup");
 
 const result = document.querySelector(".result");
+const best = document.querySelector(".best");
 const newGame = document.querySelector(".newGame");
 
 let correct;
 let cou = 0;
 let lif = 3;
 
-//====================LOGIC====================
+/* ---------------------------------- LOGIC --------------------------------- */
 
 function random1() {
   let num;
@@ -47,7 +48,7 @@ function shuffle(array) {
   return array.sort(() => Math.random() - 0.5);
 }
 
-//====================INTERFACE====================
+/* -------------------------------- INTERFACE ------------------------------- */
 
 function answerCheck(params) {
   if (params.target.textContent == correct && !img.hasAttribute("style")) {
@@ -67,7 +68,11 @@ function answerCheck(params) {
   if (lif == 0) {
     life.setAttribute("style", "display: none;");
     button.setAttribute("disabled", "disabled");
+    if (cou > localStorage.score) {
+      localStorage.score = cou;
+    }
     result.textContent = "Ваш результат: " + cou;
+    best.textContent = "Лучший: " + localStorage.score;
     popup.removeAttribute("style");
   } else {
     button.removeAttribute("disabled");

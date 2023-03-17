@@ -105,9 +105,6 @@ body {
   padding: 40px 0 0 40px;
   display: flex;
   flex-direction: column;
-  /* justify-content: center; */
-  /* align-items: center; */
-  /* background-color: rgba(0, 0, 0, 0.6); */
 }
 
 .win {
@@ -133,7 +130,14 @@ body {
   color: #fff;
   font-size: 30px;
   padding: 0;
-  margin: 40px 0;
+  margin: 40px 0 20px;
+}
+
+.best {
+  color: #fff;
+  font-size: 20px;
+  padding: 0;
+  margin: 10px 0;
 }
 
 .newGame {
