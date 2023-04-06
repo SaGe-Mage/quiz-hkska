@@ -68,7 +68,7 @@ function answerCheck(params) {
   if (lif == 0) {
     life.setAttribute("style", "display: none;");
     button.setAttribute("disabled", "disabled");
-    if (cou > localStorage.score) {
+    if (cou > localStorage.score || localStorage.score == undefined) {
       localStorage.score = cou;
     }
     result.textContent = "Ваш результат: " + cou;
