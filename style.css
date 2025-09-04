@@ -35,10 +35,6 @@ body {
   font-size: 70px;
 }
 
-.img_btn:hover {
-  background-color: #cfcfcf;
-}
-
 .img {
   width: 300px;
   height: 300px;
@@ -52,9 +48,7 @@ body {
   padding: 0 15px;
   font-family: "Tourney", cursive;
   font-size: 100px;
-  background-color: #003485;
   border-radius: 25% 10%;
-  color: #ff1e30;
   text-shadow: 1px 0 1px #fff, 0 1px 1px #fff, -1px 0 1px #fff, 0 -1px 1px #fff;
 }
 
@@ -71,18 +65,14 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 2px #000 solid;
   border-radius: 20px;
-  background-color: #fff;
 }
 
 .answer:hover {
-  background-color: #ff0;
   cursor: pointer;
 }
 
 .answer:active {
-  background-color: #7fffd4;
   transform: scale(0.96);
 }
 
@@ -93,10 +83,6 @@ body {
   margin-top: 50px;
   margin-bottom: 20px;
   border-radius: 20px;
-}
-
-.reload:hover {
-  background-color: rgb(226, 226, 226);
 }
 
 .popup {
@@ -225,5 +211,111 @@ body {
 
   .newGame:hover {
     background-color: rgb(226, 226, 226);
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .page {
+    background-color: #191919;
+  }
+
+  .count {
+    color: #ffffff;
+  }
+
+  .img_btn {
+    background-color: #ffffff2a;
+  }
+
+  .img_btn:hover {
+    background-color: #cfcfcf;
+  }
+
+  .answer {
+    color: #ffffff;
+    border: 2px #000000 solid;
+    background-color: #2262c9;
+  }
+
+  .answer:hover {
+    color: #000000;
+    background-color: #ffff00;
+  }
+
+  .answer:active {
+    background-color: #7fffd4;
+  }
+
+  .reload {
+    background-color: #ffffff;
+  }
+
+  .reload:hover {
+    background-color: #e2e2e2;
+  }
+
+  .reload:disabled {
+    background-color: #5e5e5eab;
+  }
+
+  .question {
+    background-color: #2262c9;
+    color: #ff1e30;
+  }
+
+  .right {
+    color: #ffffff;
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  .page {
+    background-color: #ffffff;
+  }
+
+  .count {
+    color: #000000;
+  }
+
+  .img_btn {
+    background-color: #ffffff;
+  }
+
+  .img_btn:hover {
+    background-color: #cfcfcf;
+  }
+
+  .answer {
+    border: 2px #000000 solid;
+    background-color: #ffffff;
+  }
+
+  .answer:hover {
+    background-color: #ffff00;
+  }
+
+  .answer:active {
+    background-color: #7fffd4;
+  }
+
+  .reload {
+    background-color: #ffffff;
+  }
+
+  .reload:hover {
+    background-color: #e2e2e2;
+  }
+
+  .reload:disabled {
+    background-color: #ffffff;
+  }
+
+  .question {
+    background-color: #003485;
+    color: #ff1e30;
+  }
+
+  .right {
+    color: #000000;
   }
 }

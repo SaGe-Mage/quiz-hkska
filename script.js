@@ -61,7 +61,7 @@ function answerCheck(params) {
     cou += 2;
     count.textContent = cou;
   } else {
-    params.target.setAttribute("style", "background-color: #ff1e30;");
+    params.target.setAttribute("style", "background-color: #ff1e30; color: black;");
     lif--;
     life.setAttribute("src", "./img/heart" + lif + ".png");
   }
@@ -80,19 +80,19 @@ function answerCheck(params) {
 
   switch (correct) {
     case answer1.textContent:
-      answer1.setAttribute("style", "background-color: lime;");
+      answer1.setAttribute("style", "background-color: lime; color: black;");
       break;
 
     case answer2.textContent:
-      answer2.setAttribute("style", "background-color: lime;");
+      answer2.setAttribute("style", "background-color: lime; color: black;");
       break;
 
     case answer3.textContent:
-      answer3.setAttribute("style", "background-color: lime;");
+      answer3.setAttribute("style", "background-color: lime; color: black;");
       break;
 
     case answer4.textContent:
-      answer4.setAttribute("style", "background-color: lime;");
+      answer4.setAttribute("style", "background-color: lime; color: black;");
       break;
 
     default:
@@ -122,10 +122,10 @@ newGame.addEventListener("click", (event) => {
 });
 
 function runGame() {
-  answer1.setAttribute("style", "background-color: white;");
-  answer2.setAttribute("style", "background-color: white;");
-  answer3.setAttribute("style", "background-color: white;");
-  answer4.setAttribute("style", "background-color: white;");
+  answer2.removeAttribute("style");
+  answer1.removeAttribute("style");
+  answer3.removeAttribute("style");
+  answer4.removeAttribute("style");
 
   let index = random1();
   let newIndex = shuffle(index[1]);
