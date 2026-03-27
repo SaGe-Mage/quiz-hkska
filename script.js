@@ -23,29 +23,38 @@ let lif = 3;
 /* ---------------------------------- LOGIC --------------------------------- */
 
 function random1() {
-  let num;
-  let names = [];
-  let otv = "";
-  let img;
+  if (team.length < 4) {
+    throw new Error("Массив team должен содержать минимум 4 элемента");
+  }
 
-  for (let x = 0; x <= 3; x++) {
-    let index = Math.floor(Math.random() * team.length);
-    if (names.includes(team[index].name, 0)) {
-      return random1();
-    } else {
-      if (x === 3) {
-        otv = team[index].name;
+  let names = new Set();
+  let otv, num, img;
+
+  while (names.size < 4) {
+    const index = Math.floor(Math.random() * team.length);
+    const name = team[index].name;
+
+    if (!names.has(name)) {
+      names.add(name);
+
+      if (names.size === 4) {
+        otv = name;
         num = team[index].num;
         img = team[index].img;
       }
-      names[x] = team[index].name;
     }
   }
-  return [num, names, otv, img];
+
+  return [num, Array.from(names), otv, img];
 }
 
 function shuffle(array) {
-  return array.sort(() => Math.random() - 0.5);
+  const arr = [...array];
+  for (let i = arr.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [arr[i], arr[j]] = [arr[j], arr[i]];
+  }
+  return arr;
 }
 
 /* -------------------------------- INTERFACE ------------------------------- */
@@ -61,7 +70,10 @@ function answerCheck(params) {
     cou += 2;
     count.textContent = cou;
   } else {
-    params.target.setAttribute("style", "background-color: #ff1e30; color: black;");
+    params.target.setAttribute(
+      "style",
+      "background-color: #ff1e30; color: black;",
+    );
     lif--;
     life.setAttribute("src", "./img/heart" + lif + ".png");
   }
